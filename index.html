@@ -11,9 +11,16 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css"
+      rel="stylesheet"
+    />
 
     <title>Frontend Mentor | Blog preview card</title>
 
@@ -25,11 +32,26 @@
         --color-yellow: hsl(47, 88%, 63%);
         --color-gray-500: hsl(0, 0%, 42%);
         --color-gray-950: hsl(0, 0%, 7%);
-        --font-size-body: 16px;
+
+        /*
+         * I'm reading that setting a font size on root/body is not a great
+         * idea for accessibility/usability for those that need to browse at
+         * larger/smaller font sizes.
+         *
+          --font-size-body: 16px;
+          font-size: var(--font-size-body);
+         */
 
         font-family: "Figtree";
         font-weight: 500;
+        font-optical-sizing: auto;
         background-color: var(--color-yellow);
+
+        button {
+          cursor: pointer;
+          background: none;
+          border: none;
+        }
 
         .blog-card {
           margin: 20vh auto;
@@ -58,21 +80,42 @@
               background-color: var(--color-yellow);
               border-radius: 5px;
               font-weight: 800;
-              padding: .5em 1em;
+              padding: 0.5em 1em;
+              transition: background 0.2s;
+
+              &:hover,
+              &:focus {
+                /* Lighten the category button */
+                background-color: hsl(
+                  from var(--color-yellow) calc(h * 1.1) calc(s * 1.1) l
+                );
+                /* Attempted to darken button, use white text, and scale the div at first.
+                 * The swapping of the colors was too jarring. Also, scaling the font resulted
+                 * in .25s of blurry text that doesn't seem to have a simple answer with a bit
+                 * of googling.
+                  color: var(--color-white);
+                  background-color: hsl(from var(--color-yellow) h s calc(.5 * l));
+                  transform: scale(1.05);
+                  transition: transform ease 0.25s;
+                 */
+              }
             }
           }
 
           .blog-date {
             margin-top: 1em;
+            font-size: smaller;
           }
 
-          .blog-title {
-            font-weight: 800;
-          }
+          .blog-info {
+            .blog-title {
+              font-weight: 800;
+            }
 
-          .blog-description {
-            line-height: 1.5em;
-            color: var(--color-gray-500);
+            .blog-description {
+              line-height: 1.5em;
+              color: var(--color-gray-500);
+            }
           }
 
           .blog-author {
@@ -108,19 +151,24 @@
           <img src="./assets/images/illustration-article.svg" alt="" />
         </div>
         <div class="blog-categories">
-          <div class="blog-category">Learning</div>
+          <button class="blog-category">Learning</button>
         </div>
         <div class="blog-date">Published 21 Dec 2023</div>
-        <h1 class="blog-title">HTML & CSS foundations</h1>
-        <p class="blog-description">
-          These languages are the backbone of every website, defining structure,
-          content, and presentation.
-        </p>
-        <div class="blog-author">
+        <a href="#" class="blog-info">
+          <h1 class="blog-title">HTML & CSS foundations</h1>
+          <p class="blog-description">
+            These languages are the backbone of every website, defining
+            structure, content, and presentation.
+          </p>
+        </a>
+        <button class="blog-author">
           <div class="author-avatar">
-            <img src="./assets/images/image-avatar.webp" alt="Greg Hooper avatar image" /><span>Greg Hooper</span>
+            <img
+              src="./assets/images/image-avatar.webp"
+              alt="Greg Hooper avatar image"
+            /><span>Greg Hooper</span>
           </div>
-        </div>
+        </button>
       </article>
     </main>
     <footer class="attribution">
