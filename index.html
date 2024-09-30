@@ -1,39 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Blog preview card</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <main>
-    <article class="card">
-      <div class="preview-image">Image here</div>
-    </article>
-  </main>
+    <title>Frontend Mentor | Blog preview card</title>
 
-  Learning
+    <style>
+      body {
+        --breakpoint-mobile: 375px;
+        --breakpoint-desktop: 1440px;
+        --color-white: hsl(0, 0%, 100%);
+        --color-yellow: hsl(47, 88%, 63%);
+        --color-gray-500: hsl(0, 0%, 42%);
+        --color-gray-950: hsl(0, 0%, 7%);
+        --font-size-body: 16px;
 
-  Published 21 Dec 2023
+        font-family: "Figtree";
+        font-weight: 500;
+        background-color: var(--color-yellow);
 
-  HTML & CSS foundations
+        .blog-card {
+          margin: 20vh auto;
+          width: calc(var(--breakpoint-mobile) - 3em);
+          background-color: var(--color-white);
 
-  These languages are the backbone of every website, defining structure, content, and presentation.
+          border: var(--color-gray-950) 1px solid;
+          border-radius: 15px;
+          box-shadow: 10px 10px var(--color-gray-950);
+          padding: 1.5em;
 
-  Greg Hooper
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+          .preview-image {
+            clip-path: border-box;
+            border-radius: 12px;
+
+            img {
+              display: block;
+            }
+          }
+
+          .blog-categories {
+            margin-top: 1.5em;
+
+            .blog-category {
+              display: inline-block;
+              background-color: var(--color-yellow);
+              border-radius: 5px;
+              font-weight: 800;
+              padding: .5em 1em;
+            }
+          }
+
+          .blog-date {
+            margin-top: 1em;
+          }
+
+          .blog-title {
+            font-weight: 800;
+          }
+
+          .blog-description {
+            line-height: 1.5em;
+            color: var(--color-gray-500);
+          }
+
+          .blog-author {
+            .author-avatar {
+              font-weight: 800;
+
+              img {
+                height: 40px;
+              }
+
+              span {
+                margin-left: 1em;
+                vertical-align: 75%;
+              }
+            }
+          }
+        }
+
+        .attribution {
+          font-size: 11px;
+          text-align: center;
+        }
+        .attribution a {
+          color: hsl(228, 45%, 44%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="blog-card">
+        <div class="preview-image">
+          <img src="./assets/images/illustration-article.svg" alt="" />
+        </div>
+        <div class="blog-categories">
+          <div class="blog-category">Learning</div>
+        </div>
+        <div class="blog-date">Published 21 Dec 2023</div>
+        <h1 class="blog-title">HTML & CSS foundations</h1>
+        <p class="blog-description">
+          These languages are the backbone of every website, defining structure,
+          content, and presentation.
+        </p>
+        <div class="blog-author">
+          <div class="author-avatar">
+            <img src="./assets/images/image-avatar.webp" alt="Greg Hooper avatar image" /><span>Greg Hooper</span>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/beninseattle">beninseattle</a>.
+    </footer>
+  </body>
 </html>
