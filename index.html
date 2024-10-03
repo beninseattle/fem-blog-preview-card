@@ -25,7 +25,13 @@
     <title>Frontend Mentor | Blog preview card</title>
 
     <style>
-      body {
+      :root {
+        /* resets */
+        a {
+          text-decoration: none;
+          color: unset;
+        }
+
         --breakpoint-mobile: 375px;
         --breakpoint-desktop: 1440px;
         --color-white: hsl(0, 0%, 100%);
@@ -47,10 +53,8 @@
         font-optical-sizing: auto;
         background-color: var(--color-yellow);
 
-        button {
+        .cursor-pointer {
           cursor: pointer;
-          background: none;
-          border: none;
         }
 
         .blog-card {
@@ -120,6 +124,7 @@
 
           .blog-author {
             .author-avatar {
+              display: inline-block;
               font-weight: 800;
 
               img {
@@ -151,24 +156,24 @@
           <img src="./assets/images/illustration-article.svg" alt="" />
         </div>
         <div class="blog-categories">
-          <button class="blog-category">Learning</button>
+          <a href="#" class="blog-category cursor-pointer">Learning</a>
         </div>
         <div class="blog-date">Published 21 Dec 2023</div>
-        <a href="#" class="blog-info">
+        <a href="#" class="blog-info cursor-pointer">
           <h1 class="blog-title">HTML & CSS foundations</h1>
           <p class="blog-description">
             These languages are the backbone of every website, defining
             structure, content, and presentation.
           </p>
         </a>
-        <button class="blog-author">
+        <a href="#" class="blog-author cursor-pointer">
           <div class="author-avatar">
             <img
               src="./assets/images/image-avatar.webp"
               alt="Greg Hooper avatar image"
             /><span>Greg Hooper</span>
           </div>
-        </button>
+        </a>
       </article>
     </main>
     <footer class="attribution">
